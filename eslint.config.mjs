@@ -14,6 +14,15 @@ export default [
   //  recommended rules 
   // pluginJs.configs.recommended,
 
+  {
+    rules:{
+      "eqeqeq": "error",
+      "no-eval":"error",
+      "curly":"error",
+      "no-else-return":"warn"
+    }
+  }
+
 
 
 ];
