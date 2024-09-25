@@ -3,6 +3,9 @@ import pluginJs from "@eslint/js";
 import latestFunctionRule from "./rules/latest-function.js";  // Import your custom rule
 import noFix from "./rules/no-fix.js";
 export default [
+  // ignore rules dir 
+  {ignores: ["rules/*"]},
+
   // Match .js files and set the language options
   {
     files: ["**/*.js"],
@@ -36,8 +39,9 @@ export default [
 
       // Use your custom rule here
       "custom-rules/latest-function": "error",
-      
-      "custom-rules/no-fix": "error",
+
+      // path options of comments need to control and parse
+      "custom-rules/no-fix":["error" , ["fix","todo"]],
     },
   },
 ];
