@@ -1,7 +1,7 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
 import latestFunctionRule from "./rules/latest-function.js";  // Import your custom rule
-
+import noFix from "./rules/no-fix.js";
 export default [
   // Match .js files and set the language options
   {
@@ -24,6 +24,7 @@ export default [
       "custom-rules": {
         rules: {
           "latest-function": latestFunctionRule,  // Register the custom rule
+          "no-fix": noFix,
         },
       },
     },
@@ -35,6 +36,8 @@ export default [
 
       // Use your custom rule here
       "custom-rules/latest-function": "error",
+      
+      "custom-rules/no-fix": "error",
     },
   },
 ];
