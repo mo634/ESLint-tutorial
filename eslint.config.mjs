@@ -1,28 +1,40 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
-
+import latestFunctionRule from "./rules/latest-function.js";  // Import your custom rule
 
 export default [
-
-  // to match .js files & detect type of language
-  {files: ["**/*.js"], languageOptions: {sourceType: "script"}},
-
-
-  // determine env that  run code 
-  {languageOptions: { globals: globals.browser }},
-
-  //  recommended rules 
-  // pluginJs.configs.recommended,
-
+  // Match .js files and set the language options
   {
-    rules:{
-      "eqeqeq": "error",
-      "no-eval":"error",
-      "curly":"error",
-      "no-else-return":"warn"
-    }
-  }
+    files: ["**/*.js"],
+    languageOptions: {
+      sourceType: "script",
+    },
+  },
 
+  // Set the environment (browser in this case)
+  {
+    languageOptions: {
+      globals: globals.browser,
+    },
+  },
 
+  // Register the custom rule as part of a local plugin
+  {
+    plugins: {
+      "custom-rules": {
+        rules: {
+          "latest-function": latestFunctionRule,  // Register the custom rule
+        },
+      },
+    },
+    rules: {
+      "eqeqeq": "error",          // Use built-in ESLint rules
+      "no-eval": "error",
+      "curly": "error",
+      "no-else-return": "warn",
 
+      // Use your custom rule here
+      "custom-rules/latest-function": "error",
+    },
+  },
 ];
