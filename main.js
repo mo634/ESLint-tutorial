@@ -8,7 +8,7 @@ function latestFunction() {
 
 
 // 
-console.log(odlFunction())
+console.log(latestFunction())
 
  /* This is a block comment */
 // todo
