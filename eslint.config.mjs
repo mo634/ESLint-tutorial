@@ -6,6 +6,7 @@ export default [
   // ignore rules dir 
   {ignores: ["rules/*"]},
 
+<<<<<<< HEAD
   // Match .js files and set the language options
   {
     files: ["**/*.js"],
@@ -20,6 +21,18 @@ export default [
       globals: globals.browser,
     },
   },
+=======
+  // to match .js files & detect type of language
+  {files: ["**/*.js"], languageOptions: {sourceType: "script"}},
+
+
+  // determine env that  run code 
+  {languageOptions: { globals: globals.browser }},
+
+  //  recommended rules 
+  // pluginJs.configs.recommended,
+
+>>>>>>> parent of 26c31cd (2.Use ESLint Rule)
 
   // Register the custom rule as part of a local plugin
   {
